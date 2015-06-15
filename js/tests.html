@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="lodash.min.js" type="text/javascript"></script>
+  <script src="cards.js" type="text/javascript"></script>
+</head>
+<body>
+  <div id="log"></div>
+</body>
+  <script>
+    var logString = "",
+        log = document.getElementById("log"),
+        expectedSortedDeck = [{"name":"Two of spades","value":2,"suitValue":1,"symbol":"2♠","verticalSymbol":"2<br>♠","color":"black"},{"name":"Three of spades","value":3,"suitValue":2,"symbol":"3♠","verticalSymbol":"3<br>♠","color":"black"},{"name":"Four of spades","value":4,"suitValue":3,"symbol":"4♠","verticalSymbol":"4<br>♠","color":"black"},{"name":"Five of spades","value":5,"suitValue":4,"symbol":"5♠","verticalSymbol":"5<br>♠","color":"black"},{"name":"Six of spades","value":6,"suitValue":5,"symbol":"6♠","verticalSymbol":"6<br>♠","color":"black"},{"name":"Seven of spades","value":7,"suitValue":6,"symbol":"7♠","verticalSymbol":"7<br>♠","color":"black"},{"name":"Eight of spades","value":8,"suitValue":7,"symbol":"8♠","verticalSymbol":"8<br>♠","color":"black"},{"name":"Nine of spades","value":9,"suitValue":8,"symbol":"9♠","verticalSymbol":"9<br>♠","color":"black"},{"name":"Ten of spades","value":10,"suitValue":9,"symbol":"10♠","verticalSymbol":"10<br>♠","color":"black"},{"name":"Jack of spades","value":11,"suitValue":10,"symbol":"J♠","verticalSymbol":"J<br>♠","color":"black"},{"name":"Queen of spades","value":12,"suitValue":11,"symbol":"Q♠","verticalSymbol":"Q<br>♠","color":"black"},{"name":"King of spades","value":13,"suitValue":12,"symbol":"K♠","verticalSymbol":"K<br>♠","color":"black"},{"name":"Ace of spades","value":14,"suitValue":13,"symbol":"A♠","verticalSymbol":"A<br>♠","color":"black"},{"name":"Two of hearts","value":3,"suitValue":1,"symbol":"2♥","verticalSymbol":"2<br>♥","color":"red"},{"name":"Three of hearts","value":4,"suitValue":2,"symbol":"3♥","verticalSymbol":"3<br>♥","color":"red"},{"name":"Four of hearts","value":5,"suitValue":3,"symbol":"4♥","verticalSymbol":"4<br>♥","color":"red"},{"name":"Five of hearts","value":6,"suitValue":4,"symbol":"5♥","verticalSymbol":"5<br>♥","color":"red"},{"name":"Six of hearts","value":7,"suitValue":5,"symbol":"6♥","verticalSymbol":"6<br>♥","color":"red"},{"name":"Seven of hearts","value":8,"suitValue":6,"symbol":"7♥","verticalSymbol":"7<br>♥","color":"red"},{"name":"Eight of hearts","value":9,"suitValue":7,"symbol":"8♥","verticalSymbol":"8<br>♥","color":"red"},{"name":"Nine of hearts","value":10,"suitValue":8,"symbol":"9♥","verticalSymbol":"9<br>♥","color":"red"},{"name":"Ten of hearts","value":11,"suitValue":9,"symbol":"10♥","verticalSymbol":"10<br>♥","color":"red"},{"name":"Jack of hearts","value":12,"suitValue":10,"symbol":"J♥","verticalSymbol":"J<br>♥","color":"red"},{"name":"Queen of hearts","value":13,"suitValue":11,"symbol":"Q♥","verticalSymbol":"Q<br>♥","color":"red"},{"name":"King of hearts","value":14,"suitValue":12,"symbol":"K♥","verticalSymbol":"K<br>♥","color":"red"},{"name":"Ace of hearts","value":15,"suitValue":13,"symbol":"A♥","verticalSymbol":"A<br>♥","color":"red"},{"name":"Two of diamonds","value":4,"suitValue":1,"symbol":"2♦","verticalSymbol":"2<br>♦","color":"red"},{"name":"Three of diamonds","value":5,"suitValue":2,"symbol":"3♦","verticalSymbol":"3<br>♦","color":"red"},{"name":"Four of diamonds","value":6,"suitValue":3,"symbol":"4♦","verticalSymbol":"4<br>♦","color":"red"},{"name":"Five of diamonds","value":7,"suitValue":4,"symbol":"5♦","verticalSymbol":"5<br>♦","color":"red"},{"name":"Six of diamonds","value":8,"suitValue":5,"symbol":"6♦","verticalSymbol":"6<br>♦","color":"red"},{"name":"Seven of diamonds","value":9,"suitValue":6,"symbol":"7♦","verticalSymbol":"7<br>♦","color":"red"},{"name":"Eight of diamonds","value":10,"suitValue":7,"symbol":"8♦","verticalSymbol":"8<br>♦","color":"red"},{"name":"Nine of diamonds","value":11,"suitValue":8,"symbol":"9♦","verticalSymbol":"9<br>♦","color":"red"},{"name":"Ten of diamonds","value":12,"suitValue":9,"symbol":"10♦","verticalSymbol":"10<br>♦","color":"red"},{"name":"Jack of diamonds","value":13,"suitValue":10,"symbol":"J♦","verticalSymbol":"J<br>♦","color":"red"},{"name":"Queen of diamonds","value":14,"suitValue":11,"symbol":"Q♦","verticalSymbol":"Q<br>♦","color":"red"},{"name":"King of diamonds","value":15,"suitValue":12,"symbol":"K♦","verticalSymbol":"K<br>♦","color":"red"},{"name":"Ace of diamonds","value":16,"suitValue":13,"symbol":"A♦","verticalSymbol":"A<br>♦","color":"red"},{"name":"Two of clubs","value":5,"suitValue":1,"symbol":"2♣","verticalSymbol":"2<br>♣","color":"black"},{"name":"Three of clubs","value":6,"suitValue":2,"symbol":"3♣","verticalSymbol":"3<br>♣","color":"black"},{"name":"Four of clubs","value":7,"suitValue":3,"symbol":"4♣","verticalSymbol":"4<br>♣","color":"black"},{"name":"Five of clubs","value":8,"suitValue":4,"symbol":"5♣","verticalSymbol":"5<br>♣","color":"black"},{"name":"Six of clubs","value":9,"suitValue":5,"symbol":"6♣","verticalSymbol":"6<br>♣","color":"black"},{"name":"Seven of clubs","value":10,"suitValue":6,"symbol":"7♣","verticalSymbol":"7<br>♣","color":"black"},{"name":"Eight of clubs","value":11,"suitValue":7,"symbol":"8♣","verticalSymbol":"8<br>♣","color":"black"},{"name":"Nine of clubs","value":12,"suitValue":8,"symbol":"9♣","verticalSymbol":"9<br>♣","color":"black"},{"name":"Ten of clubs","value":13,"suitValue":9,"symbol":"10♣","verticalSymbol":"10<br>♣","color":"black"},{"name":"Jack of clubs","value":14,"suitValue":10,"symbol":"J♣","verticalSymbol":"J<br>♣","color":"black"},{"name":"Queen of clubs","value":15,"suitValue":11,"symbol":"Q♣","verticalSymbol":"Q<br>♣","color":"black"},{"name":"King of clubs","value":16,"suitValue":12,"symbol":"K♣","verticalSymbol":"K<br>♣","color":"black"},{"name":"Ace of clubs","value":17,"suitValue":13,"symbol":"A♣","verticalSymbol":"A<br>♣","color":"black"}];
+
+  //Test 1: check that our card deck has all cards
+    var TestOne_deckIsMissingCard = false;
+    _.each(expectedSortedDeck, function(card){
+      if(!_.findWhere(cardDeck.getDeck(), card)){
+        TestOne_deckIsMissingCard = true;
+      };
+    });
+    //Log result
+    if(TestOne_deckIsMissingCard){
+      logString += "FAILURE: Test One. cardDeck is generating a deck that is missing a card or has unexpected values. <br>";
+    } else {
+      logString += "SUCCESS: Test One. cardDeck is generating an expected deck with expected values. <br>";
+    }
+
+  //Test 2: check that a shuffled card deck has all cards and is not
+    var TestTwo_deckIsMissingCard = false;
+    cardDeck.shuffleCards(cardDeck.getDeck());
+    _.each(expectedSortedDeck, function(card){
+      if(!_.findWhere(cardDeck.getDeck(), card)){
+        TestTwo_deckIsMissingCard = true;
+      };
+    });
+    if(TestTwo_deckIsMissingCard){
+      logString += "FAILURE: Test Two. cardDeck is shuffling a deck that is missing a card or has unexpected values. <br>";
+    } else {
+      logString += "SUCCESS: Test Two. cardDeck is shuffling an expected deck with expected values. <br>";
+    }
+  //Test 3: check that after an operation on the deck cardDeck.mainDeck always equals the returned value
+    var TestThree_deckIsntReturned = false;
+    var tempDeck = cardDeck.sorted52CardDeck();
+    if(!JSON.stringify(tempDeck) == JSON.stringify(cardDeck.getDeck())){
+      TestThree_deckIsntReturned = true;
+    }
+
+    tempDeck = cardDeck.shuffleCards(cardDeck.getDeck());
+    if(!JSON.stringify(tempDeck) == JSON.stringify(cardDeck.getDeck())){
+      TestThree_deckIsntReturned = true;
+    }
+
+    tempDeck = cardDeck.sortCards(cardDeck.getDeck());
+    if(!JSON.stringify(tempDeck) == JSON.stringify(cardDeck.getDeck())){
+      TestThree_deckIsntReturned = true;
+    }
+
+    tempDeck = cardDeck.shuffleCards(cardDeck.getDeck());
+    if(!JSON.stringify(tempDeck) == JSON.stringify(cardDeck.getDeck())){
+      TestThree_deckIsntReturned = true;
+    }
+
+    tempDeck = cardDeck.sortCards(cardDeck.getDeck());
+    if(!JSON.stringify(tempDeck) == JSON.stringify(cardDeck.getDeck())){
+      TestThree_deckIsntReturned = true;
+    }
+
+    if(TestThree_deckIsntReturned){
+      logString += "FAILURE: Test Three. cardDeck actions (shuffling, sorting, etc.) don't return the deck being held at cardDeck.mainDeck . <br>";
+    } else {
+      logString += "SUCCESS: Test Three. ccardDeck actions (shuffling, sorting, etc.) do return the deck being held at cardDeck.mainDeck . <br>";
+    }
+
+    log.innerHTML = logString;
+  </script>
+</html>
